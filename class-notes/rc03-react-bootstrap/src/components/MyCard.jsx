@@ -3,6 +3,7 @@ import Row from "react-bootstrap/Row"
 import Card from "react-bootstrap/Card"
 import Col from "react-bootstrap/esm/Col"
 import Button from "react-bootstrap/Button"
+// import {Button} from "react-bootstrap"; bazen böyle de önerebiiliyor
 
 //! react alanında döngü olarak sadece map desteklenir,condition lardan da sadece ternary desteklenir 
 
