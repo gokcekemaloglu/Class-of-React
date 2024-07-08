@@ -8,6 +8,7 @@
         width: 350px;
         height: $cardHeight;
         position: relative;
+        overflow: hidden; // carddan taşanları gizle
 
         .price{
             color: red;
@@ -20,6 +21,7 @@
             padding: $cardPadding;
             font-size: 0.9rem;
             border-radius: $borderRadius;
+            z-index: 2;
         }
         img{
             width: 100%;
@@ -32,8 +34,20 @@
             filter: none;
         }
         &_over{
-            position: absolute;
             width: 100%;
+            position: absolute;
+            bottom: 0;
+            transform: translateX(100%);
+            transition: all 0.7s;
+            font-size: 1.2rem;
+            padding: $cardPadding;
+            border-radius: $borderRadius;
+            background-color: $cardBgColor;
+            color: darken(white,50%); //içine renk ve % verdiğinizde yazıyı silik yapıyor
+        }
+        &:hover .card_over{
+            transform: translateX(0%);
+
         }
     }
 
