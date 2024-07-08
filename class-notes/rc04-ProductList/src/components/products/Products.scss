@@ -1,0 +1,41 @@
+@import "../../scss/mixins";
+@import "../../scss/variables";
+
+.ürün-list{
+    @include flexxx(row,space-evenly,2rem);
+    margin: 1rem;
+    .card{
+        width: 350px;
+        height: $cardHeight;
+        position: relative;
+
+        .price{
+            color: red;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: $cardBgColor;
+            color: $cardColor;
+            padding: $cardPadding;
+            font-size: 0.9rem;
+            border-radius: $borderRadius;
+        }
+        img{
+            width: 100%;
+            height: $cardHeight;
+            border-radius: $borderRadius;
+            filter: sepia(100%);
+            // img'lerin renklerini aynı yapar ve sarıya döndürür
+        }
+        :hover{
+            filter: none;
+        }
+        &_over{
+            position: absolute;
+            width: 100%;
+        }
+    }
+
+}
+
