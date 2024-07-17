@@ -1,14 +1,20 @@
 import React, { useState } from 'react'
 
-const HastaEkle = () => {
+const HastaEkle = ({hastalar, setHastalar}) => {
   const [hastaName, setHastaName] = useState("")
   const [hastaTarih, setTarih] = useState("")
+
+  const handleSubmitt = (e) => {
+    e.preventDefault() // direk submit yapma, önce alttaki kodlara bak
+    
+
+  }
 
 
   return (
     <div>
 
-      <form>
+      <form onSubmit={handleSubmitt}>
         <div className="formControl">
           <label htmlFor="text">Hasta Bilgileri</label>
           <input
@@ -23,7 +29,7 @@ const HastaEkle = () => {
           <input
             type="datetime-local"
             id="day"
-              
+            onChange={(e)=>setTarih(e.target.value)}
           />
         </div>
 
