@@ -3,9 +3,16 @@ import { MdDeleteForever } from "react-icons/md";
 import { FaCheckCircle } from "react-icons/fa";
 
 const TodoGoster = ({doing, setDoing}) => {
-    console.log(doing);
+    // console.log(doing);
     const deleteTodo = (id) =>{
-        setDoing(doing.filter((item)=> item.id !== id));
+
+        //! local storagedan da silme(eklenen)
+        localStorage.setItem(
+            "todoList",
+            JSON.stringify(doing.filter((i) => i.id !== id))
+          );
+
+        setDoing(JSON.parse(localStorage.getItem("todoList")));
     }
   return (
     <div>
