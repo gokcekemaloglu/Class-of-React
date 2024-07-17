@@ -4,7 +4,7 @@ import { FaTimesCircle } from "react-icons/fa";
 const HastaListe = ({hastalar, setHastalar, doktorlar }) => {
 
   // (doktorlar.length === 1) ? setHastalar(hastalar.filter((a)=> a.myDoctor === doktorlar[0].doctorName)) : hastalar
-  
+
   return (
     <div>
       {hastalar.map((hasta)=>(
@@ -24,8 +24,6 @@ const HastaListe = ({hastalar, setHastalar, doktorlar }) => {
 
             </div>
           ))}
-          
-
         </div>
       ))}
     </div>
