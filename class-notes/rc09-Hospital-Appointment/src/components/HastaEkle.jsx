@@ -1,17 +1,19 @@
 import React, { useState } from 'react'
 import uuid from "react-uuid"
 
-const HastaEkle = ({hastalar, setHastalar}) => {
+const HastaEkle = ({hastalar, setHastalar, doktorlar}) => {
   const [hastaName, setHastaName] = useState("")
   const [hastaTarih, setTarih] = useState("")
+
+  console.log(doktorlar);
 
   const handleSubmitt = (e) => {
     e.preventDefault() // direk submit yapma, önce alttaki kodlara bak
 
-    setHastalar([...hastalar, {id: uuid(), text: hastaName ,day: hastaTarih, isDone: false, myDoctor: "DR İpek Bilir"}])
+    setHastalar([...hastalar, {id: uuid(), text: hastaName ,day: hastaTarih, isDone: false, myDoctor: doktorlar[0].doctorName}])
 
     // setHastalar'a gidildiğinde hemen içinde console.log varsa çalışıverir ve biz useState'in yaptığı işi göremeyiz. Bunun için log bu sabmit fonksiyonunun dışında olmalı
-    
+
     setHastaName("")
     setTarih("")
 
@@ -46,7 +48,7 @@ const HastaEkle = ({hastalar, setHastalar}) => {
           />
         </div>
 
-        <button type="submit" className="kayit"><span style={{color:"#6a0707"}}>DR ADI</span> ICIN KAYIT OLUSTUR</button>
+        <button type="submit" className="kayit"><span style={{color:"#6a0707"}}>{doktorlar[0].doctorName}</span> ICIN KAYIT OLUSTUR</button>
       </form>
     </div>
   )

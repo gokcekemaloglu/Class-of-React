@@ -17,7 +17,7 @@ const Home = () => {
   }
 
   return (
-    <div>
+    <div style={{display: tikla ? "block": "flex", justifyContent:"space-between"}}>
       <div>
         <header className="header">
           <h1>HOSPITAL</h1>
@@ -31,14 +31,14 @@ const Home = () => {
                   width="180px"
                   height="150px"
                   className="btn"
-                  style={{ backgroundColor: "aqua" }}
+                  style={{ backgroundColor: tikla ? "aqua" : "lightgreen"}}
                   onClick={()=>doctorClick(doc.id)}
                 />
 
                 <h4
                   style={{
-                    backgroundColor: "aqua",
-                    borderLeft: "10px solid blue",
+                    backgroundColor: tikla ? "aqua" : "lightgreen",
+                    borderLeft: `10px solid ${tikla ? "blue" : "green"}`,
                   }}
                 >
                   {doc.doctorName}
@@ -48,7 +48,7 @@ const Home = () => {
           </div>
         </header>
 
-        {!tikla && (<HastaEkle hastalar={hastalar} setHastalar={setHastalar}/>)}
+        {!tikla && (<HastaEkle hastalar={hastalar} setHastalar={setHastalar} doktorlar={doktorlar} />)}
 
         
 
