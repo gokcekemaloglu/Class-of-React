@@ -14,7 +14,7 @@ const HastaEkle = () => {
           <input
             type="text"
             id="text"
-              
+            onChange={(e)=>setHastaName(e.target.value)}
           />
         </div>
 
