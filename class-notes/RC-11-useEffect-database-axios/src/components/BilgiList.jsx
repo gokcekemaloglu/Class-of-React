@@ -1,9 +1,12 @@
 
-
+import { useState } from "react";
+import EditBilgi from "../components/EditBilgi";
 import { AiFillDelete } from "react-icons/ai";
 import { FaEdit } from "react-icons/fa";
 
-const BilgiList = () => {
+const BilgiList = ({tutorials,deleteBilgi,putBilgiler}) => {
+  console.log(tutorials);
+  const [editItem,setEditItem]=useState("")
   
 
   return (
@@ -20,18 +23,18 @@ const BilgiList = () => {
           </tr>
         </thead>
         <tbody>
-          {[].map(() => {
+          {tutorials.map(({id, title, description}) => {
             return (
-              <tr >
-                <th></th>
-                <td></td>
-                <td> </td>
+              <tr key={id}>
+                <th>{id}</th>
+                <td>{title}</td>
+                <td>{description}</td>
                 <td className="text-center ">
                   <AiFillDelete
                     type="button"
                     size={22}
                     className="text-danger cursor-pointer"
-                 
+                    onClick={()=>deleteBilgi(id)}
 
                   />
 
@@ -41,7 +44,7 @@ const BilgiList = () => {
                     size={20}
                     type="button"
                     className="me-2 text-warning cursor-pointer"
-                
+                    onClick={()=>setEditItem({id,title,description})}
                   />
                 </td>
               </tr>
@@ -49,6 +52,7 @@ const BilgiList = () => {
           })}
         </tbody>
       </table>
+      <EditBilgi editItem={editItem} setEditItem={setEditItem}  putBilgiler={putBilgiler}/>
       
     </div>
   );
