@@ -1,0 +1,16 @@
+
+import "bootstrap/dist/css/bootstrap.min.css";
+// indexedDB.html'e de bootstrap'in teşekkürünü script olarak ekledik
+import Home from "./pages/Home";
+
+
+
+function App() {
+  return (
+    <div >
+    <Home/>
+    </div>
+  );
+}
+
+export default App;
