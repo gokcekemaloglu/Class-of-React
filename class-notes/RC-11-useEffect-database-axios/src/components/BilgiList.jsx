@@ -4,7 +4,7 @@ import EditBilgi from "../components/EditBilgi";
 import { AiFillDelete } from "react-icons/ai";
 import { FaEdit } from "react-icons/fa";
 
-const BilgiList = ({tutorials,deleteBilgi,putBilgiler}) => {
+const BilgiList = ({tutorials, deleteBilgi, putBilgiler}) => {
   console.log(tutorials);
   const [editItem,setEditItem]=useState("")
   
