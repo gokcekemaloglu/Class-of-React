@@ -3,16 +3,14 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const Teacher = () => {
+  const navigateee = useNavigate()
+
   const [people, setPeople] = useState([]);
   useEffect(() => {
    axios
      .get("https://jsonplaceholder.typicode.com/users")
      .then((res) => setPeople(res.data));
   }, []);
-  const navigateee = useNavigate()
-
-
-
 
  return (
    <div className="container text-center mt-4">

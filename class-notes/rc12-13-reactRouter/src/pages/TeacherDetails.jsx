@@ -28,7 +28,7 @@ const TeacherDetails = () => {
 
   //! 2.Yol: 
 
-  const {state:{person}}=useLocation()
+  const {state:{person}} = useLocation()
     
   return (
 
