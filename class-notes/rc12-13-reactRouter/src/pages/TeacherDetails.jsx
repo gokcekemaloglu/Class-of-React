@@ -28,6 +28,10 @@ const TeacherDetails = () => {
 
   //! 2.Yol: 
 
+  //! useLocation.//  navigate ile gonderilen state'i yakalamak icin useLocation Hook'u kullanilabilir.
+  //! Bu durumda veri, state ile geldigi icin yeniden fetch yapilmasina gerek kalmaz
+
+
   const {state:{person}} = useLocation()
     
   return (
