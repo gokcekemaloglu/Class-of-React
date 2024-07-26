@@ -11,6 +11,22 @@ const ProductCard = ({urun,getData}) => {
     getData()
   }
 
+  const handleArttir = async() => {
+    await axios.put(`${BASE_URL}/${id}`, {...urun, amount: amount + 1})
+    getData()
+  }
+
+  const handleAzalt = async() => {
+
+    if (amount>1) {
+      await axios.put(`${BASE_URL}/${id}`, {...urun, amount: amount - 1})
+    getData()
+    }else{
+      alert("Silinsin mi?")
+      handleSil()
+    }
+  }
+
 
   return (
     <div className="card shadow-lg mb-3">
