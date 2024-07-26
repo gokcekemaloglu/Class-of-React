@@ -5,7 +5,19 @@ import axios from "axios"
 
 
 const UpdateProduct = () => {
+  const {state:{urun}} = useLocation()
 
+  const [yeniVeri,setYeniVeri]=useState(urun)
+
+  const BASE_URL = "https://63f4e5583f99f5855db9e941.mockapi.io/products";
+
+  const navigate = useNavigate()
+
+  const handleSubmit = async(e) => {
+    e.preventDefault()
+    await axios.put(`${BASE_URL}/${yeniVeri.id}`, yeniVeri)
+    navigate(-1)
+  }
 
 
   return (
@@ -16,7 +28,7 @@ const UpdateProduct = () => {
       >
         <h1 className="text-center">update Product</h1>
 
-        <form  className="p-2">
+        <form onSubmit={handleSubmit} className="p-2">
           <div className="mb-3">
             <label htmlFor="add-name" className="form-label">
               Product Name
@@ -25,8 +37,8 @@ const UpdateProduct = () => {
               type="text"
               className="form-control"
               name="name"
-              value={""}
-              
+              value={yeniVeri.name}
+              onChange={(e)=>setYeniVeri({...yeniVeri, name: e.target.value})}
               required
             />
           </div>
@@ -38,9 +50,9 @@ const UpdateProduct = () => {
               type="number"
               className="form-control"
               name="price"
-              value={""}
+              value={yeniVeri.price}
               required
-            
+              onChange={(e)=>setYeniVeri({...yeniVeri, price: e.target.value})}
             />
           </div>
           <div className="mb-3">
@@ -51,9 +63,9 @@ const UpdateProduct = () => {
               type="number"
               className="form-control"
               name="amount"
-              value={""}
+              value={yeniVeri.amount}
               required
-            
+              onChange={(e)=>setYeniVeri({...yeniVeri, amount: e.target.value})}
             />
           </div>
           <label htmlFor="add-image" className="form-label">
@@ -67,10 +79,10 @@ const UpdateProduct = () => {
               type="url"
               className="form-control"
               name="image"
-              value={""}
+              value={yeniVeri.image}
               aria-describedby="basic-addon3"
               required
-            
+              onChange={(e)=>setYeniVeri({...yeniVeri, image: e.target.value})}
             />
           </div>
           <div className="text-center">

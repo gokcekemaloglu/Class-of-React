@@ -28,8 +28,6 @@ const NewProduct = () => {
     navigate("/products")
 
   }
-  
-
 
   return (
     <div className="container">

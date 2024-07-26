@@ -1,8 +1,10 @@
 import axios from "axios";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const ProductCard = ({urun,getData}) => {
   const {id, name, image, price, dampingRate, amount} = urun
+  const navigate = useNavigate()
 
   const BASE_URL = "https://63f4e5583f99f5855db9e941.mockapi.io/products";
 
@@ -37,6 +39,8 @@ const ProductCard = ({urun,getData}) => {
             className="w-100 h-100 rounded-start"
             alt={"name"}
             title={""}
+            // onClick={()=>navigate(`/update-product/${id}`)}  //params'lı yol
+            onClick={()=>navigate("/update-product", {state:{urun}})} //useLocation'lı yol
           />
         </div>
         <div className="col-md-7">
