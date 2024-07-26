@@ -19,29 +19,20 @@ const Navbar = () => {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <NavLink className="nav-link " aria-current="page" to="/">
+              <NavLink style={({isActive})=>({textDecoration:isActive && "underline"})} className="nav-link " aria-current="page" to="/">
                 Home
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="/new-product">
-                New Product
-              </NavLink>
+              <NavLink style={({isActive})=>({textDecoration:isActive && "underline"})} className="nav-link" to="/new-product">New Product</NavLink>
             </li>
             <li className="nav-item">
-              <NavLink
-             
-                className="nav-link"
-              >
+              <NavLink style={({isActive})=>({textDecoration:isActive && "underline"})} to="/products" className="nav-link">
                 Product List
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink
-               
-                className="nav-link"
-              
-              >
+              <NavLink style={({isActive})=>({textDecoration:isActive && "underline"})} to="/about" className="nav-link">
                 About
               </NavLink>
             </li>
