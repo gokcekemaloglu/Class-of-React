@@ -4,15 +4,20 @@ import React, { useState } from "react";
 
 const NewProduct = () => {
  
-const initialValue = {
-  name: "",
-  price: 0,
-  amount: 0,
-  image: "",
-  dampingRate: 0.8,
-};
+  const initialValue = {
+    name: "",
+    price: 0,
+    amount: 0,
+    image: "",
+    dampingRate: 0.8,
+  };
 
+  const [formVeri, setFormVeri] = useState(initialValue);
 
+  const handleSubmit = () => {
+    
+  }
+  
 
 
   return (
@@ -23,7 +28,7 @@ const initialValue = {
       >
         <h1 className="text-center"> New Product</h1>
 
-        <form  className="p-2">
+        <form onSubmit={handleSubmit} className="p-2">
           <div className="mb-3">
             <label htmlFor="add-name" className="form-label">
               Product Name
@@ -34,7 +39,7 @@ const initialValue = {
               name="name"
               value={""}
               required
-          
+              onChange={(e)=>setFormVeri({...formVeri, name: e.target.value})}
             />
           </div>
           <div className="mb-3">
@@ -47,7 +52,7 @@ const initialValue = {
               name="price"
               value={""}
               required
-           
+              onChange={(e)=>setFormVeri({...formVeri, price: e.target.value})}
             />
           </div>
           <div className="mb-3">
@@ -60,7 +65,7 @@ const initialValue = {
               name="amount"
               value={""}
               required
-           
+              onChange={(e)=>setFormVeri({...formVeri, amount: e.target.value})}
             />
           </div>
           <label htmlFor="add-image" className="form-label">
@@ -77,7 +82,7 @@ const initialValue = {
               value={""}
               aria-describedby="basic-addon3"
               required
-            
+              onChange={(e)=>setFormVeri({...formVeri, image: e.target.value})}
             />
           </div>
           <div className="text-center">
