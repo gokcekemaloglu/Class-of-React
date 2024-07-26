@@ -1,4 +1,6 @@
+import axios from "axios";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -14,8 +16,17 @@ const NewProduct = () => {
 
   const [formVeri, setFormVeri] = useState(initialValue);
 
-  const handleSubmit = () => {
-    
+  const navigate = useNavigate()
+
+  const BASE_URL = "https://63f4e5583f99f5855db9e941.mockapi.io/products";
+
+  const handleSubmit = async(e) => {
+    e.preventDefault()
+    await axios.post(BASE_URL, formVeri)
+    setFormVeri(initialValue)
+
+    navigate("/products")
+
   }
   
 
@@ -37,7 +48,7 @@ const NewProduct = () => {
               type="text"
               className="form-control"
               name="name"
-              value={""}
+              value={formVeri.name}
               required
               onChange={(e)=>setFormVeri({...formVeri, name: e.target.value})}
             />
@@ -50,7 +61,7 @@ const NewProduct = () => {
               type="number"
               className="form-control"
               name="price"
-              value={""}
+              value={formVeri.price}
               required
               onChange={(e)=>setFormVeri({...formVeri, price: e.target.value})}
             />
@@ -63,7 +74,7 @@ const NewProduct = () => {
               type="number"
               className="form-control"
               name="amount"
-              value={""}
+              value={formVeri.amount}
               required
               onChange={(e)=>setFormVeri({...formVeri, amount: e.target.value})}
             />
@@ -79,7 +90,7 @@ const NewProduct = () => {
               type="url"
               className="form-control"
               name="image"
-              value={""}
+              value={formVeri.image}
               aria-describedby="basic-addon3"
               required
               onChange={(e)=>setFormVeri({...formVeri, image: e.target.value})}
