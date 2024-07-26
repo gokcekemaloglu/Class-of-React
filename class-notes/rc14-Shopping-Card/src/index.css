@@ -55,9 +55,9 @@ body {
   width: 4px;
   height: 100%;
   background-color: #f1f2b5;
-  transform: scaleY(1);
+  /* transform: scaleY(1);
   transition: all 0.5s;
-  transform-origin: bottom;
+  transform-origin: bottom; */
 }
 
 .card:after {
