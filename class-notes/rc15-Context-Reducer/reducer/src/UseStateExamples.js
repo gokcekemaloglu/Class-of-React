@@ -12,7 +12,7 @@ const UseStateExample = () => {
       .then((res) => res.json())
       .then((data) => {
         setDog(data.message);
-         setLoading(false);
+        setLoading(false);
       })
       .catch(() => {
         setError("DİKKAT URL DE HATA VAR");

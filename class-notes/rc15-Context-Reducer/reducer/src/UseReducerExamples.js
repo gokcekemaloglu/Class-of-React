@@ -4,7 +4,7 @@ import load from "./img/Spin-1s-200px.gif";
 
 const UseReducerExample = () => {
   // action1 alttaki fetchDog dan gelen mesaj
-  // const reducerAA = (state1, {type,mesaj}) => {
+  // const reducerAA = (state1, {type, mesaj}) => {
   //   switch (type) {
   //     case "START":
   //       return { ...state1, loading: true };
@@ -20,10 +20,11 @@ const UseReducerExample = () => {
   //     dog: "",
   //     error: "",
   //   }
+
   const [state, yakala] = useReducer(
     reducerAA,
 
-  state1
+    state1
   );
   const { dog, loading, error } = state;
 
