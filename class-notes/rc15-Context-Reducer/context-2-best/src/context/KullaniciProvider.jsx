@@ -18,9 +18,13 @@ const KullaniciProvider = ({children}) => {
 //   const res = axios.get("https://api.github.com/users")
 //   const data = res ()....... eksik
 // },[])
+
+  const changeWidth = (id, size) => {
+    setUsers(users.map((a) => a.id === id ?{...a, width: size} : a))
+  }
   
   return (
-    <KullaniciContext.Provider value={{users}}>
+    <KullaniciContext.Provider value={{users, changeWidth}}>
       {children}
     </KullaniciContext.Provider>
   )
