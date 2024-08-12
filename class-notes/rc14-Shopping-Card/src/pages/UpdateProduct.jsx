@@ -5,13 +5,27 @@ import axios from "axios"
 
 
 const UpdateProduct = () => {
-  const {state:{urun}} = useLocation()
 
-  const [yeniVeri,setYeniVeri]=useState(urun)
+  //! useParams'lı yol
 
-  const BASE_URL = "https://63f4e5583f99f5855db9e941.mockapi.io/products";
+  // const BASE_URL = "https://63f4e5583f99f5855db9e941.mockapi.io/products";
 
-  const navigate = useNavigate()
+  // const {id} = useParams()
+  // const [yeniVeri, setYeniVeri] = useState({})
+
+  // const {data} = axios(BASE_URL/id)
+
+  // setYeniVeri(data)
+
+
+  //! useLocation'lı yol
+  // const {state:{urun}} = useLocation()
+
+  // const [yeniVeri,setYeniVeri]=useState(urun)
+
+  // const BASE_URL = "https://63f4e5583f99f5855db9e941.mockapi.io/products";
+
+  // const navigate = useNavigate()
 
   const handleSubmit = async(e) => {
     e.preventDefault()

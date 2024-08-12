@@ -16,7 +16,8 @@ const AppRouter = () => {
       <Route path="/new-product" element={<NewProduct/>} />
       <Route path="/products" element={<ProductList/>} />
       <Route path="/about" element={<About/>} />
-      <Route path="/update-product" element={<UpdateProduct/>} />
+      {/* <Route path="/update-product" element={<UpdateProduct/>} /> useLocate'li */}
+      <Route path="/update-product:id" element={<UpdateProduct/>} />
 
     </Routes>
   </Router>;

@@ -39,8 +39,8 @@ const ProductCard = ({urun,getData}) => {
             className="w-100 h-100 rounded-start"
             alt={"name"}
             title={""}
-            // onClick={()=>navigate(`/update-product/${id}`)}  //params'lı yol
-            onClick={()=>navigate("/update-product", {state:{urun}})} //useLocation'lı yol
+            onClick={()=>navigate(`/update-product/${id}`)}  //params'lı yol
+            // onClick={()=>navigate("/update-product", {state:{urun}})} //useLocation'lı yol
           />
         </div>
         <div className="col-md-7">
