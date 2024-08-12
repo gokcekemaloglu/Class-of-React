@@ -2,7 +2,11 @@ import React from 'react'
 
 const Isimler = () => {
   return (
-    <div>Isimler</div>
+    <div>
+      Isimler
+
+      anauser
+    </div>
   )
 }
 

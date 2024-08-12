@@ -2,7 +2,11 @@ import React from 'react'
 
 const GosterUsers = () => {
   return (
-    <div>GosterUsers</div>
+    <div>
+      GosterUsers
+      baslik
+      isim
+    </div>
   )
 }
 
