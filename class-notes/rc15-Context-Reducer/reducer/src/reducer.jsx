@@ -7,7 +7,8 @@ export const state1 = {
 
 // action1 yerine {type,mesaj} da yazabiliriz
 // {type,mesaj} yakala olmuş oluyor
-// yakala yazılmaz onun yerine payload yazılır
+// yakala yazılmaz onun yerine dispatch yazılır
+// mesaj yazılmaz onun yerine payload yazılır
 
 export const reducerAA = (state1, action1) => {
   switch (action1.type) {
