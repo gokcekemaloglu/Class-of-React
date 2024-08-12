@@ -1,11 +1,15 @@
 import React from 'react'
+import Baslik from '../component/Baslik'
+import Isimler from '../component/Isimler'
 
 const GosterUsers = () => {
   return (
     <div>
-      GosterUsers
-      baslik
-      isim
+      <h2>GosterUsers Sayfası</h2>
+
+      <Baslik/>
+      <Isimler/>
+      
     </div>
   )
 }
