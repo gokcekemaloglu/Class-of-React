@@ -16,7 +16,7 @@ const KullaniciProvider = ({children}) => {
 // axiosla yapsaydık
 //   useEffect(()=>{
 //   const res = axios.get("https://api.github.com/users")
-//   const data = res ()....... eksik
+//   const data = setUsers(res.data)
 // },[])
 
   const changeWidth = (id, size) => {
