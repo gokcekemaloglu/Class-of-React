@@ -1,6 +1,7 @@
 import React from 'react'
 import DisplaySSS from './styles/DisplaySSS'
 import ImageSSS, { LogoSSS } from './styles/ImageSSS'
+import ButtonSSS, { DetayButton } from './styles/ButonSSS'
 
 const Header = () => {
   return (
@@ -9,8 +10,8 @@ const Header = () => {
         <DisplaySSS>
             <LogoSSS src="./images/logo.png" alt=""/>
             <div>
-                <button>Apply Courses</button>
-                <button>Talk to Adviser</button>
+                <ButtonSSS rengin="red">Apply Courses</ButtonSSS>
+                <ButtonSSS fatih>Talk to Advisor</ButtonSSS>
             </div>
         </DisplaySSS>
 
@@ -20,8 +21,8 @@ const Header = () => {
                 <p>
                 Clarusway is a leading international software Bootcamp. Join a micro class online with other trainees and learn coding skills with a highly-skilled instructor.
                 </p>
-                <button>New Career</button>
-                <button>Details</button>
+                <ButtonSSS fatih>New Career</ButtonSSS>
+                <DetayButton>Details</DetayButton>
             </div>
 
             <ImageSSS src="./images/hero.jpg" alt=""/>
