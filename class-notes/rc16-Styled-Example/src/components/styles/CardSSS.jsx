@@ -16,9 +16,9 @@ const CardSSS = styled.div`
   @media screen and (max-width:${({theme}) => theme.responsive}) {
     flex-direction: column;
     background-color: pink;
-}
+    }
 
-box-shadow: ${({theme}) => theme.golge};
+ box-shadow: ${({theme}) => theme.golge};
 
 `;
 
