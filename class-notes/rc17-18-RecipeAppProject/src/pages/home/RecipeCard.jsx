@@ -1,8 +1,23 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { RecipeContext } from '../../context/RecipeProvider'
+import { Cards, MainContainer, RecipeButton, RecipeHeader, RecipeImage } from './HomeStyles'
 
 const RecipeCard = () => {
+
+  const {recipes} = useContext(RecipeContext)
+  // console.log(recipes);
+  
+
   return (
-    <div>RecipeCard</div>
+    <MainContainer>
+      {recipes.map(({recipe})=>(
+        <Cards key={recipes.calories}>
+          <RecipeHeader>{recipe.label}</RecipeHeader>
+          <RecipeImage src={recipe.image}/>
+          <RecipeButton>Details</RecipeButton>
+        </Cards>
+      ))}
+    </MainContainer>
   )
 }
 
