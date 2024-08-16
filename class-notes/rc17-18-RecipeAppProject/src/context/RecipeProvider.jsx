@@ -15,9 +15,7 @@ const RecipeProvider = ({children}) => {
     const [name, setName] = useState(localStorage.getItem("username") || "")
     const [password, setPassword] = useState(localStorage.getItem("password") || "")
 
-    //! home, header ve recipeCard'da gerekli olan veriler
-
-    
+    //! home, header ve recipeCard'da gerekli olan veriler    
 
     const [recipes, setRecipes] = useState([])
     const [query, setQuery] = useState("pie")
