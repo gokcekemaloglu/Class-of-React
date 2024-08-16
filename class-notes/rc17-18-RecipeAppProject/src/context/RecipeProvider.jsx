@@ -30,12 +30,26 @@ const RecipeProvider = ({children}) => {
 
     const getData = async() => {
 
-        const {data} = await axios.get(url)
-        setRecipes(data.hits)
+        setLoading(true)
 
+        try {
+            const {data} = await axios.get(url)
+            setRecipes(data.hits)
+        } catch (error) {
+            setError(true)
+        }finally{
+            setLoading(false)
+        }
         // console.log(data);
-        // console.log(recipes);
-        
+        // console.log(recipes);        
+    }
+
+    if (error) {
+        return <p>Something went wrong...</p>
+    }
+
+    if (loading) {
+        return <p>Loading...</p>
     }
 
     
