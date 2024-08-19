@@ -2,6 +2,14 @@ import React from 'react'
 
 const Typography = () => {
   return (
+
+    //! Fragment
+    // <></>
+    // <React.Fragment></React.Fragment>
+    // ikisi arasındaki fark, boş olana key yazamıyorsun, dolu olana key yazabiliyorsun. ama kullanım açısından ikisi de aynı, DOM'u yormayan bir fragment olmuş oluyor
+    //!
+
+
     <div>
         <h3 className="text-2xl ">Typography</h3>
         <p className="text-sm">Typography</p>
