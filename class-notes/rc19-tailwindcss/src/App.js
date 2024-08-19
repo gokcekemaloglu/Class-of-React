@@ -1,3 +1,5 @@
+import FlexandResponsive from "./components/FlexandResponsive";
+import HoverandFocus from "./components/HoverandFocus";
 import SpacingandSizing from "./components/SpacingandSizing";
 import Typography from "./components/Typography";
 
@@ -7,7 +9,9 @@ function App() {
     <div>
       TailwindCss
       {/* <Typography/> */}
-      <SpacingandSizing/>
+      {/* <SpacingandSizing/> */}
+      {/* <HoverandFocus/> */}
+      <FlexandResponsive/>
     </div>
   );
 }
