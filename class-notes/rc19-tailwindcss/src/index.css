@@ -2,3 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+/** element bazında default olarak vermek istediğimiz stilleri base layer'da veriyoruz */
+@layer base {
+    /** apply methodu ile tailwind classlarını kullanabiliyoruz */
+    h1 {
+        @apply text-center text-2xl font-bold;
+
+    }
+}
+
+@layer components {
+    .responsive-grid{
+        @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4
+    }
+}
