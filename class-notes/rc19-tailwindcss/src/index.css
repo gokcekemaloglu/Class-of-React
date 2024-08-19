@@ -3,13 +3,17 @@
 @tailwind utilities;
 
 /** element bazında default olarak vermek istediğimiz stilleri base layer'da veriyoruz */
+
 @layer base {
+    
     /** apply methodu ile tailwind classlarını kullanabiliyoruz */
     h1 {
         @apply text-center text-2xl font-bold;
 
     }
 }
+
+/** component/class bazında default olarak vermek istediğimiz stilleri components layer'da veriyoruz */
 
 @layer components {
     .responsive-grid{

@@ -14,6 +14,8 @@ const FlexandResponsive = () => {
         <br /><br /><br /><br />
         <hr />
         <h1>Grid</h1>
+        <hr />
+        <br />
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             <div className="bg-red-100 basis-1/4">1</div>
             <div className="bg-red-200 basis-1/4">2</div>
@@ -27,6 +29,8 @@ const FlexandResponsive = () => {
         <hr />
         
         <h1>Grid - Layer Components</h1>
+        <hr />
+        <br />
       <div className="responsive-grid">
         <div className="bg-red-100">1</div>
         <div className="bg-red-200">2</div>
@@ -40,15 +44,18 @@ const FlexandResponsive = () => {
       <hr />
         
       <h1>Config</h1>
+      <hr />
+      <br />
       <div className="bg-primary dark:bg-slate-200">
         <div className="bg-blue-950 dark:text-white dark:text-2xl">1</div>
         <div className="">2</div>
-        <div className=" ">3</div>
-        <div className=" ">4</div>
+        <div className="">3</div>
+        <div className="">4</div>
         <div className="">5</div>
-        <div className=" ">6</div>
+        <div className="">6</div>
       </div>
-        
+      <br /><br /><br /><br />
+      <hr />
     </div>
     
   )
