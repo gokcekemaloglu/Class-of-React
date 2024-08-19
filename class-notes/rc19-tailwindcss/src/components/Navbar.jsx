@@ -61,8 +61,8 @@ export default function Navbar() {
               <span className="absolute -inset-1.5" />
               <span className="sr-only">View notifications</span>
               <BellIcon aria-hidden="true" className="h-6 w-6" />
-                <Switch/>
             </button>
+            <Switch/>
 
             {/* Profile dropdown */}
             <Menu as="div" className="relative ml-3">
