@@ -9,7 +9,7 @@ function App() {
     // <div className="bg-slate-600 h-screen">
     <div>
       <Navbar/>
-      TailwindCss
+      <h1>TailwindCss</h1>
       {/* <Typography/> */}
       {/* <SpacingandSizing/> */}
       {/* <HoverandFocus/> */}

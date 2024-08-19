@@ -8,7 +8,8 @@ const HoverandFocus = () => {
         </button>
         <input type="text" placeholder="Focus" className="border border-gray-400 rounded-lg p-4 w-20 focus:outline-red-600 focus:w-96"/>
         <br />
-        <input type="email" placeholder="Focus" className="border border-gray-400 rounded-lg p-4 w-20 focus:outline-red-600 focus:w-96 peer"/>
+        <hr />
+        <input type="email" placeholder="Focus" className="border border-gray-400 rounded-lg m-4 p-4 w-20 focus:outline-red-600 focus:w-96 peer"/>
         <p className="text-red-600 invisible peer-invalid:visible">Invalid</p>
 
         {/* peer input ve altına yazılacak şeyleri seçmek için bir nevi seçici olmuş oluyor(modifier deniyor) */}
