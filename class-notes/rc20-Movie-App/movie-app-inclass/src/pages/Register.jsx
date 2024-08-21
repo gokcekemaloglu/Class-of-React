@@ -11,7 +11,7 @@ const Register = () => {
 
   const {createUser} = useContext(AuthContextt)
 
-  const handleSubmit = async(e) => {
+  const handleSubmit = (e) => {
     e.preventDefault()
     const displayName = `${firstName} ${lastName}`
     createUser(email, password, displayName)
@@ -76,9 +76,7 @@ const Register = () => {
           </button>
           <button
             type="button"
-            className="btn-danger flex justify-between text-center "
-          
-          >
+            className="btn-danger flex justify-between text-center ">
             Continue with Google
             <GoogleIcon color="currentColor" />
           </button>

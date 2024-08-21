@@ -11,7 +11,7 @@ const Login = () => {
 
   const {signIn} = useContext(AuthContextt)
 
-  const handleSubmit = async(e) => {
+  const handleSubmit = (e) => {
     e.preventDefault()
     signIn(email, password)
   }
