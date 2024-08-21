@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import GoogleIcon from "../assets/icons/GoogleIcon";
+import { AuthContextt } from "../context/AuthContext";
 
 const Register = () => {
 
-
+  const {createUser} = useContext(AuthContextt)
 
   return (
     <div className="overflow-hidden flex-1 h-screen justify-center items-center bg-[#23242a]">
@@ -17,8 +18,8 @@ const Register = () => {
               type="text"
               name="floating_text"
               id="floating_text"
-              class=" peer"
-              placeholder=" "
+              className=" peer"
+              placeholder=""
               required
            
             />
@@ -28,8 +29,8 @@ const Register = () => {
           </div>
           <div className="relative z-0 w-full mb-5 group">
             <input
-              class=" peer"
-              placeholder=" "
+              className=" peer"
+              placeholder=""
               name="floating_text"
               type="text"
               required
@@ -39,8 +40,8 @@ const Register = () => {
           </div>
           <div className="relative z-0 w-full mb-5 group">
             <input
-              class=" peer"
-              placeholder=" "
+              className=" peer"
+              placeholder=""
               name="floating_email"
               type="email"
               required
@@ -50,8 +51,8 @@ const Register = () => {
           </div>
           <div className="relative z-0 w-full mb-5 group">
             <input
-              class=" peer"
-              placeholder=" "
+              className=" peer"
+              placeholder=""
               name="floating_password"
               type="password"
               required
