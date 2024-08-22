@@ -4,10 +4,9 @@ import { useNavigate } from 'react-router-dom';
 
 const MovieCard = ({id, title, overview, poster_path,vote_average}) => {
 
-  const navigate = useNavigate();
+  const navigate = useNavigate();  
   
-  
-const{currentUser}=useContext(AuthContextt)
+  const{currentUser}=useContext(AuthContextt)
 
   return (
     <div className="movie" id="container"

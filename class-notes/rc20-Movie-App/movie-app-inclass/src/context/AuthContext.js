@@ -31,7 +31,6 @@ const AuthContext = ({children}) => {
       //? USERTAKİPTEN SONRA -----kullanıcı profilini güncellemek için kullanılan firebase metodu, login logout da userTakip sayesinde güncelleniyor ama register da isim güncellemesi yok, o da bu şekilde oluyor.alttakini yazmazsam (register ile girdiğimde) navbarda displayName i göremem. alttakini yazmazsam sadece google ile girersem görürüm 
 
       await updateProfile(auth.currentUser, {displayName: displayName})
-
     } catch (error) {
       toastError(`${error.message} yanlış girdiniz`)
     }    
@@ -82,7 +81,7 @@ const AuthContext = ({children}) => {
         
 
         const {email, displayName, photoURL} = user
-        setCurrentUser(user)
+        setCurrentUser({email, displayName, photoURL})
       } else {
         // User is signed out
         setCurrentUser(false)
@@ -97,10 +96,7 @@ const AuthContext = ({children}) => {
     toastSuccess("Logout is Successfully")
 
     
-  }
-
-  
-  
+  }  
 
   return (
     <AuthContextt.Provider value={{createUser, signIn, signUpGoogle, currentUser, cikis}}>
