@@ -28,10 +28,6 @@ const MovieCard = ({id, title, overview, poster_path,vote_average}) => {
             <span className={`tag ${vote_average  > 7 ? "green" : vote_average> 6.8 ? "orange": "red" } `}>{vote_average.toFixed(2)}</span>
           )
         }
-
-        
-
-
       </div>
       <div className="movie-over">
         <h2>Overview</h2>

@@ -13,7 +13,7 @@ const RecipeCard = () => {
   return (
     <MainContainer>
       {recipes.map(({recipe})=>(
-        <Cards key={recipes.calories}>
+        <Cards key={recipe.calories}>
           <RecipeHeader>{recipe.label}</RecipeHeader>
           <RecipeImage src={recipe.image}/>
           <RecipeButton onClick={()=>navigate("/details", {state:{recipe}})}>Details</RecipeButton>
