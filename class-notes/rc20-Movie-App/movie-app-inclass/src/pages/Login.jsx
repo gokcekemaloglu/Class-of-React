@@ -9,7 +9,7 @@ const Login = () => {
   const[password,setPassword]=useState()
   
 
-  const {signIn, signUpGoogle} = useContext(AuthContextt)
+  const {signIn, signUpGoogle, forgotPassword} = useContext(AuthContextt)
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -49,7 +49,7 @@ const Login = () => {
 
           <div className="flex justify-between">
             <span
-              
+              onClick={() => forgotPassword(email)}
               className="py-3 font-[0.75em] cursor-pointer decoration-none text-gray-500 hover:text-[#ff4b45]"
             >
               Forgot Password

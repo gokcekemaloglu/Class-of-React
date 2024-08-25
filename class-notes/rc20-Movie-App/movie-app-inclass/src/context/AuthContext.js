@@ -1,7 +1,7 @@
 import React, { createContext, useEffect, useState } from 'react'
-import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth';
+import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth';
 import { auth } from '../auth/firebase';
-import { toastError, toastSuccess } from '../helpers/ToastNotify';
+import { toastError, toastSuccess, toastWarn } from '../helpers/ToastNotify';
 import { useNavigate } from 'react-router-dom';
 
 //! context alanı açma
@@ -93,13 +93,23 @@ const AuthContext = ({children}) => {
 
   const cikis = () => {
     signOut(auth)
-    toastSuccess("Logout is Successfully")
-
-    
+    toastSuccess("Logout is Successfully")    
   }  
 
+  //! forgot password
+
+  const forgotPassword = (email) => {
+    sendPasswordResetEmail(auth, email)
+  .then(() => {    
+    toastWarn("Password reset email sent!")
+  })
+  .catch((error) => {
+    toastError(error.message, "Error occured")    
+  });
+  }
+
   return (
-    <AuthContextt.Provider value={{createUser, signIn, signUpGoogle, currentUser, cikis}}>
+    <AuthContextt.Provider value={{createUser, signIn, signUpGoogle, currentUser, cikis, forgotPassword}}>
       {children}
     </AuthContextt.Provider>
   )
