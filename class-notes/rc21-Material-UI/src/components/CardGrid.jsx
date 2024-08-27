@@ -1,6 +1,6 @@
 import { Button, Card, CardActions, CardContent, CardMedia, Container, Grid, Typography } from '@mui/material'
 import React, { useEffect, useState } from 'react'
-import data from "../data"
+
 
 const CardGrid = () => {
 
@@ -18,11 +18,11 @@ const CardGrid = () => {
         {
           products.map((a)=>(
             <Grid item key={a.id} xs={6} md={4}>
-              <Card sx={{ maxWidth: 345, height: 450 }}>
+              <Card sx={{ maxWidth: 345, height: 450, overflow:"auto" }}>
                 <CardMedia
-                  sx={{ height: 140 }}
+                  sx={{ height: 250 }}
                   image={a.images}
-                  title="product"
+                  title={a.title}
                 />
                 <CardContent>
                   <Typography gutterBottom variant="h5" component="div">
