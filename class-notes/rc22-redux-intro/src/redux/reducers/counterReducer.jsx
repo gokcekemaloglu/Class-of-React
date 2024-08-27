@@ -5,6 +5,10 @@ import React from 'react'
 
 export const arttir = () => ({type:"ARTTIR", payload1:"ARTTIRILDI"})
 
+export const azalt = () => ({type:"AZALT"})
+
+export const sifirla = () => ({type:"RESETLE", payload1:"SIFIRLANDI"})
+
 // const counterReducer = (state={sayac:0,text1:""},action1) => {
   // console.log(action1);
   const counterReducer = (state={sayac:0,text1:""},{type, payload1}) => {
@@ -20,7 +24,7 @@ export const arttir = () => ({type:"ARTTIR", payload1:"ARTTIRILDI"})
       return{sayac: 0, text1: payload1}
       
     default:
-      break;
+      return state
   }
 }
 
