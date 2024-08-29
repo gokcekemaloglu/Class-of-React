@@ -1,7 +1,26 @@
 import React from 'react'
 import {Avatar, Box, Button, Container, Link, TextField, Typography} from "@mui/material";
+import { useDispatch, useSelector } from 'react-redux';
+import { olusturKullanici } from '../features/yetkiSlice';
+import { useNavigate } from 'react-router-dom';
 const Login = () => {
+
+  let {email, password} = useSelector((state)=>state.yetkiSlice)
+  // console.log(email);
+
+  const navigate = useNavigate()
+
+  const dispatch = useDispatch()
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(olusturKullanici({email, password}))
+    navigate("/")
+  }
+  
+  
   return (
+    
     <Container component="main" maxWidth="xs">
       <Box
         sx={{
@@ -22,7 +41,7 @@ const Login = () => {
         {/* noValidate=doğrulanmasın
         autocomplete=Otomatik Tamamlama listesi, siz yazmaya başladığınızda adlara ve e-posta adreslerine ilişkin önerileri görüntüleyen bir özelliktir. Bu öneriler, gönderdiğiniz e-posta mesajlarındaki ad ve e-posta adresleri listesindeki olası eşleşmelerdir.
          */}
-        <Box component="form" noValidate sx={{ mt: 1 }} >
+        <Box onSubmit={handleSubmit} component="form" noValidate sx={{ mt: 1 }} >
           <TextField
             margin="normal"
             required
@@ -32,7 +51,7 @@ const Login = () => {
             name="email"
             autoComplete="email"
             autoFocus
-           
+            onChange={(e)=>email=e.target.value}
           />
           <TextField
             margin="normal"
@@ -42,7 +61,7 @@ const Login = () => {
             label="Password"
             type="password"
             id="password"
-          
+            onChange={(e)=>password=e.target.value}
           />
 
           <Button
