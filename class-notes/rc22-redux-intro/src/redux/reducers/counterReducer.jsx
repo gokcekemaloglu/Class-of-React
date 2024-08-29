@@ -10,8 +10,10 @@ export const azalt = () => ({type:"AZALT"})
 export const sifirla = () => ({type:"RESETLE", payload1:"SIFIRLANDI"})
 
 // const counterReducer = (state={sayac:0,text1:""},action1) => {
-  // console.log(action1);
-  const counterReducer = (state={sayac:0,text1:""},{type, payload1}) => {
+// console.log(action1);
+
+
+const counterReducer = (state={sayac:0,text1:""},{type, payload1}) => {
   
   switch (type) {
     case "ARTTIR":
