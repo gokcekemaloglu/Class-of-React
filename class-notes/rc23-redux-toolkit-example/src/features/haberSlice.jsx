@@ -16,8 +16,11 @@ export const haberSlice = createSlice({
   },
 
   reducers:{
-    temizle : (state) => {
-      state.haberler = []
+    // temizle : (state) => {
+    //   state.haberler = []
+    // } tüm sayfayı temizlerse bu yeter. sadece o haberi temizlemek için alttaki
+    temizle : (state, action) => {
+      state.haberler = state.haberler.filter((a) => a.url!==action.payload )
     }
   },
 

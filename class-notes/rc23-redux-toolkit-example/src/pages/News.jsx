@@ -47,7 +47,7 @@ const News = () => {
               </Typography>
             </CardContent>
             <CardActions>
-              <Button size="small" onClick={()=>dispatch(temizle())}>
+              <Button size="small" onClick={()=>dispatch(temizle(a.url))}>
                 CLEAR
               </Button>
               <Button size="small" href={a.url} target="_blank">
