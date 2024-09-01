@@ -29,10 +29,17 @@ export default [
       ...react.configs['jsx-runtime'].rules,
       ...reactHooks.configs.recommended.rules,
       'react/jsx-no-target-blank': 'off',
+      'no-unused-vars': 'off',   // buraya yapıştırdım
       'react-refresh/only-export-components': [
         'warn',
         { allowConstantExport: true },
+        
       ],
+      // 'no-unused-vars': 'warn', // Sarı altı çizme için uyarı olarak ayarlandı
+      // 'no-console': 'warn', // Konsol kullanımı uyarı olarak ayarlandı
+      // 'react/prop-types': 'warn', // Prop-types uyarı olarak ayarlandı
+      // 'eqeqeq': 'error', // Katı eşitlik kontrolü hata olarak ayarlandı
+      // 'no-undef': 'error', // Tanımsız değişken kullanımı hata olarak ayarlandı
     },
   },
 ]
