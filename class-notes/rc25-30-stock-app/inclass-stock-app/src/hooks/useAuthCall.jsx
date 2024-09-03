@@ -9,10 +9,12 @@ import {
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { toastErrorNotify, toastSuccessNotify } from "../helper/ToastNotify";
+
 const useAuthCall = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { token } = useSelector((store) => store.auth);
+  
   const register = async (userInfo) => {
     dispatch(fetchStart());
     try {
