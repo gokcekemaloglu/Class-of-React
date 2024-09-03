@@ -1,5 +1,6 @@
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
+
 const AuthImage = ({ image }) => {
   return (
     <Grid item xs={10} sm={7} md={6}>
