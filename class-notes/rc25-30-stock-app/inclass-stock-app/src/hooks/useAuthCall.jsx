@@ -1,10 +1,10 @@
-import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   fetchFail,
   fetchStart,
   registerSuccess,
   loginSuccess,
+  logoutSuccess,
 } from "../features/authSlice";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -19,7 +19,7 @@ const useAuthCall = () => {
     dispatch(fetchStart());
     try {
       const { data } = await axios.post(
-        "https://10002.fullstack.clarusway.com/users/",
+        "https://19101.fullstack.clarusway.com/users/",
         userInfo
       );
       console.log("register", data);
@@ -33,7 +33,7 @@ const useAuthCall = () => {
     dispatch(fetchStart());
     try {
       const { data } = await axios.post(
-        `https://10002.fullstack.clarusway.com/auth/login/`,
+        `https://19101.fullstack.clarusway.com/auth/login/`,
         userInfo
       );
       dispatch(loginSuccess(data));
@@ -50,6 +50,12 @@ const useAuthCall = () => {
   const logout = async () => {
     dispatch(fetchStart());
     try {
+      await axios("https://19101.fullstack.clarusway.com/auth/logout",{
+        headers:{
+          Authorization: `Token ${token}`
+        }
+      })
+      dispatch(logoutSuccess());
       toastSuccessNotify("Logout performed");
       navigate("/");
     } catch (error) {

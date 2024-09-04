@@ -46,12 +46,12 @@ const SignUpForm = ({
       <Form>
         <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
           <TextField
-            name="username" //formik name attributedından eşleştirme yapıyor.
+            name="username" //formik name attribute'undan eşleştirme yapıyor.
             label="Username"
             value={values.username}
             onChange={handleChange}
             onBlur={handleBlur} // kullanıcının input alanından ayrıldığını yaklayan event
-            helperText={touched.username && errors.username} //validationda verdiğimiz kalıba uymazsa ilgili mesajları göstermesi için errors dan gelen mesajı yakalıyoruz.
+            helperText={touched.username && errors.username} //validation'da verdiğimiz kalıba uymazsa ilgili mesajları göstermesi için errors dan gelen mesajı yakalıyoruz.
             error={touched.username && Boolean(errors.username)} //validationda verdiğimiz kalıba uymazsa rengi errora çevirmesi için error attribute ı benden false/true degeri bekliyor ondan dolayı daha sağlıklı olması için boolean deger döndürüyoruz.
             // touched da kullanıcının inputa tıklayıp tıklamadığını yakalıyor
           />

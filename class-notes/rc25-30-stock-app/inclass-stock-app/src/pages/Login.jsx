@@ -52,7 +52,7 @@ const Login = () => {
             }}
             component={props => <LoginForm {...props} />}>
               
-            </Formik>
+          </Formik>
           <Box sx={{ textAlign: "center", mt: 2, color: "secondary.main" }}>
             <Link to="/register">
               Don't have an account? Sign Up
