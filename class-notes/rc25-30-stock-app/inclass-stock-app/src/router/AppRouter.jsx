@@ -19,9 +19,12 @@ const AppRouter = () => {
         <Route path="stock" element={<PrivateRouter />}>
           <Route path="" element={<Dashboard />}>
             {/* <Route path="" element={<Home/>}/> */}
+            {/* nested route yapılarında index dediğimzde boş path vermemize gerek kalmaz. kapsayıcısının pathi geldğinde çalışır */}
             <Route index element={<Home/>}/>
+            {/* Absolute Path Kullanımı */}
+            {/* <Route path="/brands" element={<Brands />} /> // bu şekilde bırakırsam bana şu hatayı verecektir=> Absolute route path "/products" nested under path "/stock/" is not valid. An absolute child route path must start with the combined path of all its parent routes. */}
             <Route path="brands" element={<Brands/>}/>
-            {/* <Route path="/stock/brands" element={<Brands/>}/> bu, Absolute path diğer yazış şekli relative path oluyor */}
+            {/* <Route path="/stock/brands" element={<Brands/>}/> bu, Absolute path, diğer yazış şekli relative path oluyor */}
             <Route path="products" element={<Products/>}/>
             <Route path="firms" element={<Firms/>}/>
             <Route path="purchases" element={<Purchases/>}/>
