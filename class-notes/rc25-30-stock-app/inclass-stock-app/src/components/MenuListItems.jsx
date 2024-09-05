@@ -6,54 +6,120 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import MailIcon from '@mui/icons-material/Mail';
 import Divider from '@mui/material/Divider';
-import { Toolbar } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
+import { Box, Toolbar } from '@mui/material';
+import { useLocation, useNavigate } from 'react-router-dom';
+
+const icon = (name) => `/assets/navbar/${name}`
 
 const links = [
     {
         title: "Dashboard",
-        url: "/stock"
+        url: "/stock",
+        // icon:"/assets/navbar/ic_analytıcs.svg"
+        icon: icon("ic_analytics.svg")
     },
     {
         title: "Firms",
-        url: "/stock/firms"
+        url: "/stock/firms",
+        // icon:"/assets/navbar/firms.svg"
+        icon: icon("firms.svg")
     },
     {
         title: "Brands",
-        url: "/stock/brands"
+        url: "/stock/brands",
+        // icon:"/assets/navbar/brand.svg"
+        icon: icon("brand.svg")
     },
     {
         title: "Products",
-        url: "/stock/products"
+        url: "/stock/products",
+        // icon:"/assets/navbar/ic_cart.svg"
+        icon: icon("ic_cart.svg")
     },
     {
         title: "Sales",
-        url: "/stock/sales"
+        url: "/stock/sales",
+        // icon:"/assets/navbar/sales.svg"
+        icon: icon("sales.svg")
     },
     {
         title: "Purchases",
-        url: "/stock/purchases"
+        url: "/stock/purchases",
+        // icon:"/assets/navbar/purchase.svg"
+        icon: icon("purchase.svg")
     },
 ]
+
+const btnStyle = {
+  color:"secondary.main", 
+  borderRadius:"1rem",
+  transition: "all 0.6s ease-in-out",
+  "&:hover": {
+    backgroundColor: "secondary.main",
+    color: "white",
+  }
+}
+const selectedStyle = {
+  backgroundColor:"secondary.second", 
+  color:"white",
+  borderRadius:"1rem",
+  
+}
 
 // ['Home', 'Brands', 'Products', 'Sales', 'Pruchases']
 
 const MenuListItems = () => {
 
     const navigate = useNavigate()
+    const location = useLocation()
+    console.log(location);
+    
     
   return (
     <div>
       <Toolbar />
-      <Divider />
+      {/* <Divider /> */}
       <List>
         {links.map((item, index) => (
 
           <ListItem key={item.title} disablePadding>
-            <ListItemButton onClick={()=>navigate(item.url)}>
-              <ListItemIcon>
+            <ListItemButton
+              onClick={() => navigate(item.url)}
+              sx={item.url === location.pathname ? selectedStyle : btnStyle}
+              // sx={{
+              //   color:"secondary.main", 
+              //   borderRadius:"1rem",
+              //   transition: "all 0.6s ease-in-out",
+              //   "&:hover": {
+              //     backgroundColor: "secondary.main",
+              //     color: "white",
+              //   }
+              // }}
+            >
+              {/* <ListItemIcon>
                 {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
+              </ListItemIcon> */}
+              {/* <Box
+                sx={{
+                  backgroundImage:`url(${item.icon})`,
+                  backgroundPosition:"center",
+                  backgroundSize:"cover",
+                  backgroundRepeat:"no-repeat",
+                  width: "24px",
+                  height: "24px",
+                  backgroundColor:"red",
+                  mr:2
+                }}
+              /> */}
+              <Box
+                sx={{
+                  width: "24px",
+                  height: "24px",
+                  mr:2,
+                  mask: `url(${item.icon}) no-repeat center / contain `,
+                  bgColor:"red",
+                }}
+              />
               <ListItemText primary={item.title} />
             </ListItemButton>
           </ListItem>
