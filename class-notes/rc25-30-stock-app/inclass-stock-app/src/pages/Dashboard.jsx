@@ -107,11 +107,7 @@ function Dashboard(props) {
           borderRadius: "0.5rem"
         }}
       >
-        <Toolbar 
-          sx={{
-            display:"flex",
-          }}
-        >
+        <Toolbar>
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -142,7 +138,7 @@ function Dashboard(props) {
               // marginLeft: "auto"
             }}
           >
-              Logout {" "}
+              Logout{" "}
               <LogoutIcon 
                 // sx={{"&hover":{color:"red"}}}
               />

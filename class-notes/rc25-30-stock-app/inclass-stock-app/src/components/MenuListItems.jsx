@@ -9,44 +9,44 @@ import Divider from '@mui/material/Divider';
 import { Box, Toolbar } from '@mui/material';
 import { useLocation, useNavigate } from 'react-router-dom';
 
-const icon = (name) => `/assets/navbar/${name}`
+const icon = (name) => `/assets/navbar/${name}.svg`
 
 const links = [
     {
         title: "Dashboard",
         url: "/stock",
         // icon:"/assets/navbar/ic_analytıcs.svg"
-        icon: icon("ic_analytics.svg")
+        icon: icon("ic_analytics")
     },
     {
         title: "Firms",
         url: "/stock/firms",
         // icon:"/assets/navbar/firms.svg"
-        icon: icon("firms.svg")
+        icon: icon("firms")
     },
     {
         title: "Brands",
         url: "/stock/brands",
         // icon:"/assets/navbar/brand.svg"
-        icon: icon("brand.svg")
+        icon: icon("brand")
     },
     {
         title: "Products",
         url: "/stock/products",
         // icon:"/assets/navbar/ic_cart.svg"
-        icon: icon("ic_cart.svg")
+        icon: icon("ic_cart")
     },
     {
         title: "Sales",
         url: "/stock/sales",
         // icon:"/assets/navbar/sales.svg"
-        icon: icon("sales.svg")
+        icon: icon("sales")
     },
     {
         title: "Purchases",
         url: "/stock/purchases",
         // icon:"/assets/navbar/purchase.svg"
-        icon: icon("purchase.svg")
+        icon: icon("purchase")
     },
 ]
 
@@ -63,15 +63,17 @@ const selectedStyle = {
   backgroundColor:"secondary.second", 
   color:"white",
   borderRadius:"1rem",
-  
+  "&:hover": {
+    backgroundColor: "secondary.main",
+    color: "white",
+  }
 }
-
-// ['Home', 'Brands', 'Products', 'Sales', 'Pruchases']
 
 const MenuListItems = () => {
 
     const navigate = useNavigate()
     const location = useLocation()
+    // const {pathname} = useLocation()
     console.log(location);
     
     
@@ -117,7 +119,7 @@ const MenuListItems = () => {
                   height: "24px",
                   mr:2,
                   mask: `url(${item.icon}) no-repeat center / contain `,
-                  bgColor:"red",
+                  bgcolor:"currentcolor",
                 }}
               />
               <ListItemText primary={item.title} />
