@@ -9,19 +9,16 @@
 // import { Outlet } from "react-router-dom";
 
 // function Dashboard() {
-
-//   const{logout} = useAuthCall()
-
+//   const {logout} = useAuthCall()
 //   return (
 //     <Box sx={{ display: "flex" }}>
-//       {/* <CssBaseline /> sayfayı resetlemek için mui'de bir tag */}
 //       <CssBaseline />
 //       <AppBar position="fixed">
 //         <Toolbar>
 //           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
 //             STOCK APP
 //           </Typography>
-//           <Button onClick={logout} color="inherit">Logout</Button>
+//           <Button color="inherit" onClick={logout}>Logout</Button>
 //         </Toolbar>
 //       </AppBar>
 //       <Outlet/>
@@ -31,23 +28,28 @@
 
 // export default Dashboard;
 
-
-
-import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import CssBaseline from '@mui/material/CssBaseline';
-import Drawer from '@mui/material/Drawer';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
+import * as React from "react";
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import CssBaseline from "@mui/material/CssBaseline";
+import Divider from "@mui/material/Divider";
+import Drawer from "@mui/material/Drawer";
+import IconButton from "@mui/material/IconButton";
+import InboxIcon from "@mui/icons-material/MoveToInbox";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import ListItemText from "@mui/material/ListItemText";
+import MailIcon from "@mui/icons-material/Mail";
+import MenuIcon from "@mui/icons-material/Menu";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
 import { Outlet } from "react-router-dom";
-import MenuListItems from '../components/MenuListItems';
-import useAuthCall from '../hooks/useAuthCall';
-import { Button } from '@mui/material';
-import LogoutIcon from '@mui/icons-material/Logout';
-
+import MenuListItems from "../components/MenuListItems";
+import { Button } from "@mui/material";
+import useAuthCall from "../hooks/useAuthCall";
+import LogoutIcon from "@mui/icons-material/Logout";
 
 const drawerWidth = 240;
 
@@ -55,8 +57,7 @@ function Dashboard(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [isClosing, setIsClosing] = React.useState(false);
-  const {logout} = useAuthCall()
-
+  const { logout } = useAuthCall();
   const handleDrawerClose = () => {
     setIsClosing(true);
     setMobileOpen(false);
@@ -89,22 +90,23 @@ function Dashboard(props) {
   //       ))}
   //     </List>
   //   </div>
-  // ); örnek olarak kalsin MenuList Items'a ekledik
+  // );
 
   // Remove this const when copying and pasting into your project.
-  const container = window !== undefined ? () => window().document.body : undefined;
+  const container =
+    window !== undefined ? () => window().document.body : undefined;
 
   return (
-    <Box sx={{ display: 'flex' }}>
+    <Box sx={{ display: "flex" }}>
       <CssBaseline />
       <AppBar
         position="fixed"
         sx={{
           width: { sm: `calc(100% - ${drawerWidth}px)` },
           ml: { sm: `${drawerWidth}px` },
-          backgroundColor:"white",
-          color:"secondary.second",
-          borderRadius: "0.5rem"
+          backgroundColor: "white",
+          color: "secondary.second",
+          borderRadius: "0.5rem",
         }}
       >
         <Toolbar>
@@ -113,37 +115,36 @@ function Dashboard(props) {
             aria-label="open drawer"
             edge="start"
             onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: 'none' } }}
+            sx={{ mr: 2, display: { sm: "none" } }}
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap component="div" sx={{flexGrow:1}}>
-            Stock APP
+          <Typography variant="h6" noWrap component="div" sx={{flexGrow:1}} >
+            StockApp
           </Typography>
-          <Button 
-            onClick={logout} 
+          <Button
             color="inherit"
+            onClick={logout}
             // endIcon={<LogoutIcon />}
             sx={{
-              "&:hover":{
-                backgroundColor:"secondary.second",
-                color:"white",
+              "&:hover": {
+                backgroundColor: "secondary.second",
+                color: "white",
                 "& .MuiSvgIcon-root": {
-                  color: "red"
+                  color: "red",
                 },
               },
               "& .MuiSvgIcon-root": {
-                ml:1
+                ml: 1,
               },
-              // marginLeft: "auto"
+              // marginLeft:"auto"
             }}
           >
-              Logout{" "}
-              <LogoutIcon 
-                // sx={{"&hover":{color:"red"}}}
-              />
+            Logout{" "}
+            <LogoutIcon
+            // sx={{ "&:hover": { color: "red" } }}
+            />
           </Button>
-
         </Toolbar>
       </AppBar>
       <Box
@@ -162,35 +163,44 @@ function Dashboard(props) {
             keepMounted: true, // Better open performance on mobile.
           }}
           sx={{
-            display: { xs: 'block', sm: 'none' },
-            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+            display: { xs: "block", sm: "none" },
+            "& .MuiDrawer-paper": {
+              boxSizing: "border-box",
+              width: drawerWidth,
+            },
           }}
         >
           {/* {drawer} */}
-          <MenuListItems/>
+          <MenuListItems />
         </Drawer>
         <Drawer
           variant="permanent"
           sx={{
-            display: { xs: 'none', sm: 'block' },
-            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+            display: { xs: "none", sm: "block" },
+            "& .MuiDrawer-paper": {
+              boxSizing: "border-box",
+              width: drawerWidth,
+            },
           }}
           open
         >
           {/* {drawer} */}
-          <MenuListItems/>
+          <MenuListItems />
         </Drawer>
       </Box>
       <Box
         component="main"
-        sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
+        sx={{
+          flexGrow: 1,
+          p: 3,
+          width: { sm: `calc(100% - ${drawerWidth}px)` },
+        }}
       >
         <Toolbar />
-        <Outlet/>
+        <Outlet />
       </Box>
     </Box>
   );
 }
 
 export default Dashboard;
-
