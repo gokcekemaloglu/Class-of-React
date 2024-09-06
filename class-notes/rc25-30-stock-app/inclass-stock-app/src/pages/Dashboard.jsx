@@ -91,8 +91,7 @@ function Dashboard(props) {
   //   </div>
   // ); örnek olarak kalsin MenuList Items'a ekledik
 
-  // Remove this const when copying and pasting into your project.
-  const container = window !== undefined ? () => window().document.body : undefined;
+
 
   return (
     <Box sx={{ display: 'flex' }}>
@@ -153,7 +152,7 @@ function Dashboard(props) {
       >
         {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
         <Drawer
-          container={container}
+          
           variant="temporary"
           open={mobileOpen}
           onTransitionEnd={handleDrawerTransitionEnd}
