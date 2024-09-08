@@ -6,7 +6,7 @@ import useStockCall from '../hooks/useStockCall'
 import Container from "@mui/material/Container"
 import { useSelector } from 'react-redux'
 import { Button, Grid, Typography } from '@mui/material'
-import FirmCard from '../components/FirmCard'
+import FirmCard from '../components/Cards/FirmCard'
 
 const Firms = () => {
 
