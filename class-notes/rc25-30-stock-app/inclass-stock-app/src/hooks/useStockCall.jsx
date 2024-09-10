@@ -61,6 +61,9 @@ const useStockCall = () => {
         }
     }
 
+    //! istek atarken ortak olan base_url  ve token gibi değerleri her seferinde yazmak yerine axios instance kullanarak bunları orada tanımlıyoruz. Ve sonrasında sadece istek atmak istediğimiz end pointi yazmamız yeterli oluyor.
+  //? https://axios-http.com/docs/instance
+
     const deleteStockData = async (endpoint, id) => {
       dispatch(fetchStart())
       try {
@@ -79,11 +82,39 @@ const useStockCall = () => {
       }
     }
 
+    const postStockData = async (endpoint, info) => {
+      dispatch(fetchStart())
+      try {
+        const {data} = await axiosWithToken.post(endpoint, info)
+        // console.log(data);        
+      } catch (error) {
+        console.log(error); 
+        dispatch(fetchFail())         
+      } finally {
+        getStockData(endpoint)
+      }
+    }
+
+    const putStockData = async (endpoint, info) => {
+      dispatch(fetchStart())
+      try {
+        const {data} = await axiosWithToken.put(`${endpoint}/${info._id}`, info)
+        // console.log(data);        
+      } catch (error) {
+        console.log(error); 
+        dispatch(fetchFail())         
+      } finally {
+        getStockData(endpoint)
+      }
+    }
+
   return { 
     // getFirms, 
     // getBrands, 
     getStockData,
-    deleteStockData
+    deleteStockData,
+    postStockData,
+    putStockData
   }
 }
 

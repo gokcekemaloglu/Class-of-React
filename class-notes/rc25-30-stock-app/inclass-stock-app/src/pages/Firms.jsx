@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import useStockCall from '../hooks/useStockCall'
 // import { useDispatch, useSelector } from 'react-redux'
 // import { fetchStart, firmSuccess } from '../features/stockSlice'
@@ -7,8 +7,29 @@ import Container from "@mui/material/Container"
 import { useSelector } from 'react-redux'
 import { Button, Grid, Typography } from '@mui/material'
 import FirmCard from '../components/Cards/FirmCard'
+import FirmModal from '../components/Modals/FirmModal'
 
 const Firms = () => {
+
+  //* Lifting State Up FirmModals'tan yukarı taşımış olduk!!
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => {
+    setOpen(false)
+    setInitialState({
+      name: "",
+      phone: "",
+      address: "",
+      image: ""
+  })
+  };
+  const [initialState, setInitialState] = useState({
+    name: "",
+    phone: "",
+    address: "",
+    image: ""
+})
+
 
   //? firms verileri bana birden fazla yerde lazım olduğu için fonksiyonu burada değil de her yerden erişebileceğim bir noktada tanımlıyorum. İçerisinde react hookları lazım olduğu için de bu ortak nokta en iyi custom hook olmuş oluyor.
 
@@ -46,6 +67,9 @@ const Firms = () => {
     getStockData("firms")
   },[])
 
+  console.log(initialState);
+  
+
   return <Container>
     <Typography
       align="center"
@@ -55,12 +79,14 @@ const Firms = () => {
     >
       Firms
     </Typography>
-    <Button variant="contained">New Firm</Button>
+    <Button variant="contained" onClick={handleOpen}>New Firm</Button>
+    {open && <FirmModal open={open} handleClose={handleClose} initialState={initialState}/>}
+    
     <Grid container spacing={2} mt={2}>
       {
         firms.map((firm)=>(
           <Grid item xs={12} md={6} lg={4} xl={3} key={firm._id}>
-            <FirmCard {...firm}/>
+            <FirmCard {...firm} handleOpen={handleOpen} setInitialState={setInitialState}/>
           </Grid>
         ))
       }
