@@ -42,7 +42,7 @@ export default function FirmCard({ _id, name, phone, address, image, handleOpen,
       </CardContent>
 
       <CardActions sx={{ justifyContent: "center", gap: 2 }}>
-        <EditIcon sx={btnStyle} onClick={()=>{handleOpen(),setInitialState({ _id, name, phone, address, image})}} />
+        <EditIcon sx={btnStyle} onClick={()=>{handleOpen(), setInitialState({ _id, name, phone, address, image})}} />
         <DeleteIcon onClick={()=>deleteStockData("firms",_id)} sx={btnStyle} />
       </CardActions>
     </Card>
