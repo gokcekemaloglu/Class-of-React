@@ -60,7 +60,7 @@ const ProductModal = ({ open, handleClose, initialState }) => {
           <Box
             component="form"
             onSubmit={handleSubmit}
-            sx={{ display: "flex", flexDirection: "column" }}
+            sx={flexColumn}
           >
             <FormControl fullWidth>
               <InputLabel id="demo-simple-select-label">Category</InputLabel>
