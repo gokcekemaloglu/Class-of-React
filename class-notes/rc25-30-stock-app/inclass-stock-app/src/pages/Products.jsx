@@ -40,7 +40,7 @@ const Products = () => {
   },[])
 
   return (
-    <Container>
+    <Container maxWidth={"xl"}>
       <Typography
         align="center"
         color="secondary.second"
