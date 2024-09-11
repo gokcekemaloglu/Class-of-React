@@ -3,6 +3,7 @@ import useStockCall from '../hooks/useStockCall'
 import { Button, Container, Grid, Typography } from '@mui/material'
 import { useSelector } from 'react-redux'
 import ProductModal from '../components/Modals/ProductModal'
+import ProductTable from '../components/Tables/ProductTable'
 
 const Products = () => {
 
@@ -49,6 +50,7 @@ const Products = () => {
         Products
       </Typography>
       <Button variant="contained" onClick={handleOpen}>New Product</Button>
+      <ProductTable/>
       {open && (
         <ProductModal open={open} handleClose={handleClose} initialState={initialState}/>
       )}
