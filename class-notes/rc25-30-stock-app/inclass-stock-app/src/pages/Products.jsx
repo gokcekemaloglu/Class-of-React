@@ -23,7 +23,7 @@ const Products = () => {
     brandId: ""
   })
 
-  const {products, loading} = useSelector(state => state.stock)
+  const {products, loading, error} = useSelector(state => state.stock)
 
   console.log("Products:",products);
   console.log("Products:",initialState); 
@@ -45,20 +45,42 @@ const Products = () => {
     <Container maxWidth={"xl"}>
       <Typography
         align="center"
-        color="secondary.second"
         variant="h4"
         component="h1"
+        color="secondary.second"
       >
         Products
       </Typography>
-      <Button variant="contained" onClick={handleOpen}>New Product</Button>
-      <ProductTable/>
-      {open && (
-        <ProductModal open={open} handleClose={handleClose} initialState={initialState}/>
+      {loading ? (
+        <Typography
+          align="center"
+          variant="h5"
+          component="h3"
+          color="secondary.second"
+        >
+          Loading....
+        </Typography>
+      ) : error ? (
+        <Typography align="center" variant="h5" component="h3" color="error">
+          Something went wrong...
+        </Typography>
+      ) : (
+        <>
+          <Button variant="contained" onClick={handleOpen}>
+            New Product
+          </Button>
+
+          <ProductTable />
+
+          {open && (
+            <ProductModal
+              open={open}
+              handleClose={handleClose}
+              initialState={initialState}
+            />
+          )}
+        </>
       )}
-      <Grid container spacing={2} mt={2}>
-        
-      </Grid>
     </Container>
   )
 }
