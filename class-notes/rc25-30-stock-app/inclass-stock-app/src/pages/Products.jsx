@@ -30,13 +30,15 @@ const Products = () => {
   
 
   const {
-    getStockData
+    getStockData,
+    getProCatBrand
   } = useStockCall()
 
   useEffect(()=>{
-    getStockData("products")
-    getStockData("brands")
-    getStockData("categories")
+    // getStockData("products")
+    // getStockData("brands")
+    // getStockData("categories")
+    getProCatBrand()
   },[])
 
   return (

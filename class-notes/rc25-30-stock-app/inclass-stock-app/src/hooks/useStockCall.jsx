@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchFail, fetchStart, getStockSuccess } from '../features/stockSlice'
+import { fetchFail, fetchStart, getProCatBrandSuccess, getStockSuccess } from '../features/stockSlice'
 // import axios from 'axios'
 import useAxios from './useAxios'
 
@@ -108,13 +108,32 @@ const useStockCall = () => {
       }
     }
 
+    const getProCatBrand = async () => {
+      dispatch(fetchStart())
+      try {
+        // const [a,b] = [1,2] // array descturing tek satırda birçok değişken tanımlaması yapılabiliyor bu sayede // best practice
+        // let [a,b] = [1,2] // array descturing tek satırda birçok değişken tanımlaması yapılabiliyor bu sayede
+        const [products, categories, brands] = await Promise.all([
+          axiosWithToken("products"),
+          axiosWithToken("categories"),
+          axiosWithToken("brands")
+        ])
+        console.log("products", products);
+        dispatch(getProCatBrandSuccess([products?.data?.data, categories?.data?.data, brands?.data?.data])) // object ya da array olarak gönderebiliriz
+        
+      } catch (error) {
+        dispatch(fetchFail())
+      }
+    }
+
   return { 
     // getFirms, 
     // getBrands, 
     getStockData,
     deleteStockData,
     postStockData,
-    putStockData
+    putStockData,
+    getProCatBrand
   }
 }
 

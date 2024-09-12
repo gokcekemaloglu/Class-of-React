@@ -1,7 +1,8 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import { DataGrid, GridToolbar } from '@mui/x-data-grid';
-import { useSelector } from 'react-redux';import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
+import { useSelector } from 'react-redux';
+import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import useStockCall from '../../hooks/useStockCall';
 
 // Burayı return üstüne aldık!
@@ -70,12 +71,16 @@ export default function ProductTable() {
 
     const {products} = useSelector(state=>state.stock)
 
-    // const newProducts = products
+    // const newProducts = products 'da yapılabilir.
 
     const {deleteStockData} = useStockCall()
 
     const columns = [
-        { field: '_id', headerName: 'ID', width: 90 },
+        { field: '_id', headerName: 'ID', minWidth: 40,
+          maxWidth: 70,
+          headerAlign: "center",
+          align: "center",
+          flex: 0.8, },
         {
           field: 'categoryId',
           headerName: 'Category',
@@ -120,6 +125,7 @@ export default function ProductTable() {
   return (
     <Box sx={{ height: 400, width: '100%' }}>
       <DataGrid
+        autoHeight
         rows={products}
         columns={columns}
         initialState={{
