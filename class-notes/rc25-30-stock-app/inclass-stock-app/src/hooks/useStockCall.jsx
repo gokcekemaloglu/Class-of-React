@@ -1,8 +1,9 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchFail, fetchStart, getProCatBrandSuccess, getStockSuccess } from '../features/stockSlice'
+import { fetchFail, fetchStart, getFirmBrandProSuccess, getProCatBrandSuccess, getPurSalesSuccess, getStockSuccess } from '../features/stockSlice'
 // import axios from 'axios'
 import useAxios from './useAxios'
+import { toastErrorNotify, toastSuccessNotify } from '../helper/ToastNotify'
 
 const useStockCall = () => {
 
@@ -89,7 +90,8 @@ const useStockCall = () => {
         // console.log(data);        
       } catch (error) {
         console.log(error); 
-        dispatch(fetchFail())         
+        dispatch(fetchFail()) 
+        toastErrorNotify(error.response.data.message,"error occured")      
       } finally {
         getStockData(endpoint)
       }
@@ -100,6 +102,7 @@ const useStockCall = () => {
       try {
         const {data} = await axiosWithToken.put(`${endpoint}/${info._id}`, info)
         // console.log(data);        
+        toastSuccessNotify(`${endpoint}is succesfull`)
       } catch (error) {
         console.log(error); 
         dispatch(fetchFail())         
@@ -125,6 +128,31 @@ const useStockCall = () => {
         dispatch(fetchFail())
       }
     }
+    const getFirmBrandPro = async () => {
+      dispatch(fetchStart())
+      try {
+        const [firms, brands, products] = await Promise.all([
+          axiosWithToken.get('firms'),
+          axiosWithToken.get('brands'),
+          axiosWithToken.get('products'),
+        ])
+        dispatch(getFirmBrandProSuccess([ firms?.data?.data, brands?.data?.data, products?.data?.data ]))
+      } catch (error) {
+        dispatch(fetchFail())
+      }
+    }
+    const getPurSales = async () => {
+      dispatch(fetchStart())
+      try {
+        const [purchases, sales] = await Promise.all([
+          axiosWithToken.get('purchases'),
+          axiosWithToken("sales")
+        ])
+        dispatch(getPurSalesSuccess([purchases.data, sales.data]))
+      } catch (error) {
+        dispatch(fetchFail())
+      }
+    }
 
   return { 
     // getFirms, 
@@ -133,7 +161,9 @@ const useStockCall = () => {
     deleteStockData,
     postStockData,
     putStockData,
-    getProCatBrand
+    getProCatBrand,
+    getFirmBrandPro,
+    getPurSales
   }
 }
 
