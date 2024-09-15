@@ -32,7 +32,7 @@ const ProductModal = ({ open, handleClose, initialState }) => {
   const { categories, brands } = useSelector((state) => state.stock);
 
   const handleChange = (e) => {
-    console.log(e.target.name);
+    // console.log(e.target.name);
     setInfo({ ...info, [e.target.name]: e.target.value });
   };
 

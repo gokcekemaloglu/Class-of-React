@@ -74,7 +74,7 @@ const MenuListItems = () => {
     const navigate = useNavigate()
     const location = useLocation()
     // const {pathname} = useLocation()
-    console.log(location);
+    // console.log(location);
     
     
   return (

@@ -27,7 +27,7 @@ const useAuthCall = () => {
       //   userInfo
       // );
       const {data} = await axiosPublic.post("users/",userInfo)
-      console.log("register", data);
+      // console.log("register", data);
       dispatch(registerSuccess(data));
       navigate("/stock");
     } catch (error) {
@@ -45,10 +45,10 @@ const useAuthCall = () => {
       dispatch(loginSuccess(data));
       toastSuccessNotify("Login performed");
       navigate("/stock");
-      console.log(data);
+      // console.log(data);
     } catch (error) {
       dispatch(fetchFail());
-      console.log(error);
+      // console.log(error);
       toastErrorNotify("Login can not be performed");
     }
   };
@@ -67,7 +67,7 @@ const useAuthCall = () => {
       navigate("/");
     } catch (error) {
       dispatch(fetchFail());
-      console.log(error);
+      // console.log(error);
       toastErrorNotify("Logout can not be performed");
     }
   };

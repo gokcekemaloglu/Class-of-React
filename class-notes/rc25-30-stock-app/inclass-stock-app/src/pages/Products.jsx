@@ -25,8 +25,8 @@ const Products = () => {
 
   const {products, loading, error} = useSelector(state => state.stock)
 
-  console.log("Products:",products);
-  console.log("Products:",initialState); 
+  // console.log("Products:",products);
+  // console.log("Products:",initialState); 
   
 
   const {

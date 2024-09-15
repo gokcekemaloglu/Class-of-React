@@ -11,7 +11,7 @@ const SalesModal = ({ open, handleClose, initialState }) => {
 
   const { putStockData, postStockData } = useStockCall();
 
-  console.log(info);
+  // console.log(info);
 
   const handleChange = (e) => {
     // console.log(e);

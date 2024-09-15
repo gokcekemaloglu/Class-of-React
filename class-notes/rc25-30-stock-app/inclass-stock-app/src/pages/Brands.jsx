@@ -23,7 +23,7 @@ const Brands = () => {
 
   const {brands} = useSelector(state => state.stock)
 
-  console.log(brands);
+  // console.log(brands);
   
 
   const {

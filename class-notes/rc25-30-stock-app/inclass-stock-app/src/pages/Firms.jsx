@@ -59,7 +59,7 @@ const Firms = () => {
   } = useStockCall()
 
   const {firms} = useSelector(state=> state.stock)
-  console.log(firms);
+  // console.log(firms);
   
 
   useEffect(()=>{
@@ -67,7 +67,7 @@ const Firms = () => {
     getStockData("firms")
   },[])
 
-  console.log(initialState);
+  // console.log(initialState);
   
 
   return <Container>

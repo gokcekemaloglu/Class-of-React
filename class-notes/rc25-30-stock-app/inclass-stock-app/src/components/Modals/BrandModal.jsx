@@ -21,12 +21,11 @@ const BrandModal = ({open, handleClose, initialState}) => {
     const {postStockData, putStockData} = useStockCall()
 
     const handleChange = (e) => {
-        console.log(e.target.name);
+        // console.log(e.target.name);
         setInfo ({...info, [e.target.name]:e.target.value})
     }
 
-    console.log(info);
-    
+    // console.log(info);    
 
     const handleSubmit = (e) => {
         e.preventDefault()
