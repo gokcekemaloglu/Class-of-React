@@ -31,16 +31,14 @@ const Purchases = () => {
   const{getStockData, getFirmBrandPro} = useStockCall()
 
   useEffect(()=>{
-    getStockData("purchases")
-    
+    getStockData("purchases")    
     getFirmBrandPro()
   },[])
 
   const {purchases, loading, error} = useSelector(state=>state.stock)
 
-  console.log(purchases);
-  console.log(initialState); 
-  
+  // console.log(purchases);
+  // console.log(initialState);   
 
   return (
     <Container maxWidth={"xl"}>

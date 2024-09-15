@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchFail, fetchStart, getFirmBrandProSuccess, getProCatBrandSuccess, getPurSalesSuccess, getStockSuccess } from '../features/stockSlice'
+import { fetchFail, fetchStart, getFirmBrandProSuccess, getProCatBrandSuccess, getPurSalesSuccess, getSalesBrandProSuccess, getStockSuccess } from '../features/stockSlice'
 // import axios from 'axios'
 import useAxios from './useAxios'
 import { toastErrorNotify, toastSuccessNotify } from '../helper/ToastNotify'
@@ -55,10 +55,11 @@ const useStockCall = () => {
           //   }
           // })
           const {data} = await axiosWithToken.get(endpoint)
-          console.log(data);
+          // console.log(data);
           dispatch(getStockSuccess({stock:data.data, endpoint})) //* action creatorlar her zaman tek bir parametre kabul ederler
         } catch (error) {
-          console.log(error);          
+          // console.log(error);
+          dispatch(fetchFail())
         }
     }
 
@@ -76,7 +77,7 @@ const useStockCall = () => {
         await axiosWithToken.delete(`${endpoint}/${id}`)
         // getStockData(endpoint)
       } catch (error) {
-        console.log(error);
+        // console.log(error);
         dispatch(fetchFail())
       } finally {
         getStockData(endpoint)
@@ -89,7 +90,7 @@ const useStockCall = () => {
         const {data} = await axiosWithToken.post(endpoint, info)
         // console.log(data);        
       } catch (error) {
-        console.log(error); 
+        // console.log(error); 
         dispatch(fetchFail()) 
         toastErrorNotify(error.response.data.message,"error occured")      
       } finally {
@@ -104,7 +105,7 @@ const useStockCall = () => {
         // console.log(data);        
         toastSuccessNotify(`${endpoint}is succesfull`)
       } catch (error) {
-        console.log(error); 
+        // console.log(error); 
         dispatch(fetchFail())         
       } finally {
         getStockData(endpoint)
@@ -121,7 +122,7 @@ const useStockCall = () => {
           axiosWithToken("categories"),
           axiosWithToken("brands")
         ])
-        console.log("products", products);
+        // console.log("products", products);
         dispatch(getProCatBrandSuccess([products?.data?.data, categories?.data?.data, brands?.data?.data])) // object ya da array olarak gönderebiliriz
         
       } catch (error) {
@@ -153,6 +154,19 @@ const useStockCall = () => {
         dispatch(fetchFail())
       }
     }
+    const getSalesBrandPro = async () => {
+      dispatch(fetchStart())
+      try {
+        const [sales, brands, products] = await Promise.all([
+          axiosWithToken("sales"),
+          axiosWithToken.get('brands'),
+          axiosWithToken.get('products'),
+        ])
+        dispatch(getSalesBrandProSuccess([sales.data, brands.data, products.data, ]))
+      } catch (error) {
+        dispatch(fetchFail())
+      }
+    }
 
   return { 
     // getFirms, 
@@ -163,7 +177,8 @@ const useStockCall = () => {
     putStockData,
     getProCatBrand,
     getFirmBrandPro,
-    getPurSales
+    getPurSales,
+    getSalesBrandPro
   }
 }
 

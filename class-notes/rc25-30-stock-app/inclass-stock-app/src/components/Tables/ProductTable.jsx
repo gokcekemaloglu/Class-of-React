@@ -4,6 +4,7 @@ import { DataGrid, GridToolbar } from '@mui/x-data-grid';
 import { useSelector } from 'react-redux';
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import useStockCall from '../../hooks/useStockCall';
+import { btnStyle } from '../../styles/globalStyle';
 
 // Burayı return üstüne aldık!
 // const columns = [
@@ -77,21 +78,29 @@ export default function ProductTable() {
 
     const columns = [
         { field: '_id', headerName: 'ID', minWidth: 40,
-          maxWidth: 70,
+          minxWidth: 70,
           headerAlign: "center",
           align: "center",
           flex: 0.8, },
         {
           field: 'categoryId',
           headerName: 'Category',
-          width: 150,
+          headerAlign: "center",
+          align: "center",
+          minWidth: 120,
+          editable: false,
+          flex: 2,
           // editable: true,
           valueGetter: (value)=> value?.name ?? "-NoCategory-"
         },
         {
           field: 'brandId',
           headerName: 'Brand',
-          width: 150,
+          minWidth: 120,
+          headerAlign: "center",
+          align: "center",
+          flex: 2,
+          editable: false,
           // editable: true,
           // valueGetter: (value,row)=> value?.name
           valueGetter: (value)=> value?.name ?? "-NoBrand-"
@@ -99,14 +108,22 @@ export default function ProductTable() {
         {
           field: 'name',
           headerName: 'Product Name',
-          width: 110,
+          minWidth: 110,
+          headerAlign: "center",
+          align: "center",
+          flex: 2,
+          editable: false,
           // editable: true,
         },
         {
           field: 'quantity',
           headerName: 'Stock',
           type: 'number',
-          width: 110,
+          minWidth: 100,
+          headerAlign: "center",
+          align: "center",
+          flex: 2,
+          editable: false,
           // editable: true,
         },
         {
@@ -114,9 +131,13 @@ export default function ProductTable() {
           headerName: 'Action',
           // description: 'This column has a value getter and is not sortable.',
           sortable: false,
-          width: 160,    
+          minWidth: 90,
+          headerAlign: "center",
+          align: "center",
+          flex: 2,
+          editable: false,    
           renderCell: (params) => (
-              <DeleteOutlineIcon onClick={()=>deleteStockData("products", params.id)}/>
+              <DeleteOutlineIcon onClick={()=>deleteStockData("products", params.id)} sx={btnStyle}/>
               // console.log(params)              
           )
         },
