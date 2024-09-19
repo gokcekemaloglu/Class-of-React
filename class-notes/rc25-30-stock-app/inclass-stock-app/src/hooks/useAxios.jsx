@@ -2,9 +2,9 @@ import axios from 'axios';
 import React from 'react'
 import { useSelector } from 'react-redux';
 
-// export const axiosPublic = axios.create({
-//     baseURL: import.meta.env.VITE_BASE_URL
-// })
+export const axiosPublic = axios.create({
+    baseURL: import.meta.env.VITE_BASE_URL
+})
 
 const useAxios = () => {
     const token = useSelector(state=>state.auth.token)

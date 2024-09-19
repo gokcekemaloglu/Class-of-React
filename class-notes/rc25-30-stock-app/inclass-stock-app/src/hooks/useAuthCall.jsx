@@ -9,7 +9,7 @@ import {
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { toastErrorNotify, toastSuccessNotify } from "../helper/ToastNotify";
-import useAxios from "./useAxios";
+import useAxios, { axiosPublic } from "./useAxios";
 
 const BASE_URL = import.meta.env.VITE_BASE_URL
 
